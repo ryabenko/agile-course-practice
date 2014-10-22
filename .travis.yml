@@ -1,7 +1,10 @@
 language: java
+jdk: oraclejdk7
 script:
   - cd code
   - TERM=dumb
   - gradle check
+after_success:
+    - ./gradlew jacocoTestReport coveralls
 notifications:
   email: false
